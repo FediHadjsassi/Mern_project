@@ -1,0 +1,64 @@
+/* RegisterForm.css */
+
+/* Container styling */
+.register-container {
+    width: 400px; /* Réduire la largeur pour un conteneur plus compact */
+    padding: 40px;
+    border-radius: 10px;
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(251, 251, 251, 0.1); /* Ajouter une ombre subtile */
+    /* Centrer horizontalement et verticalement */
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
+/* Title styling */
+.register-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: rgb(255, 255, 255);
+}
+
+/* Input field styling */
+.register-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Button styling */
+.register-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.register-button:hover {
+    background-color: #0056b3;
+}
+
+/* Link styling */
+.register-link {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.register-link:hover {
+    color: #0056b3;
+}
+
+

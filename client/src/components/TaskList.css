@@ -1,0 +1,124 @@
+/* TaskList.css */
+
+/* Container for the entire task list */
+.board-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.task-list-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px auto;
+}
+
+/* Column styling */
+.column {
+    flex: 1 1 300px; /* Flexible column width */
+    margin: 0 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Column header styling */
+.column h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333; /* Dark text color */
+}
+
+/* Task cards container styling */
+.task-cards-container {
+    margin-top: 10px;
+}
+
+/* Task card styling */
+.task-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Task card title styling */
+.task-card h4 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #333; /* Dark text color */
+}
+
+/* Task card description styling */
+.task-card p {
+    color: #666; /* Medium text color */
+}
+
+/* Delete button within task card */
+.delete-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%; /* Make the button round */
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Edit button within task card */
+.edit-button {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Add task container styling */
+.add-task-container {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(20, 93, 229, 0.1);
+}
+
+.add-task-container input,
+.add-task-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.add-task-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-task-container button:hover {
+    background-color: #0056b3;
+}
