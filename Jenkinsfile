@@ -2,41 +2,68 @@ pipeline {
     agent any
 
     environment {
-        NODE_HOME = tool name: 'NodeJS', type: 'ToolLocationNodeJS'
-        PATH = "${NODE_HOME}/bin:${env.PATH}"
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+        IMAGE_NAME_SERVER = 'fedi.benhajsassimern-server'
+        IMAGE_NAME_CLIENT = 'fedi.benhajsassi/mern-client'
+    }
+
+    triggers {
+        pollSCM('H/5 * * * *')  // Polling toutes les 5 minutes
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git 'https://gitlab.com/your-repository.git'  // Remplacez par l'URL de votre dépôt GitLab
+                git credentialsId: 'Gitlab_ssh', url: 'git@gitlab.com:fedi.benhajsassi/repository.git', branch: 'main'
             }
         }
-        stage('Install dependencies') {
+        stage('Build Server Image') {
             steps {
-                script {
-                    sh 'npm install'
+                dir('server') {
+                    script {
+                        dockerImageServer = docker.build("${IMAGE_NAME_SERVER}")
+                    }
                 }
             }
         }
-        stage('Test') {
+        stage('Build Client Image') {
             steps {
-                script {
-                    sh 'npm test'
+                dir('client') {
+                    script {
+                        dockerImageClient = docker.build("${IMAGE_NAME_CLIENT}")
+                    }
                 }
             }
         }
-        stage('Build') {
+        stage('Scan Server Image') {
             steps {
                 script {
-                    sh 'npm run build'
+                    sh """
+                    docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+                    aquasec/trivy:latest image --exit-code 0 --severity LOW,MEDIUM,HIGH,CRITICAL \
+                    ${IMAGE_NAME_SERVER}
+                    """
                 }
             }
         }
-        stage('Deploy') {
+        stage('Scan Client Image') {
             steps {
                 script {
-                    sh 'npm run deploy'
+                    sh """
+                    docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+                    aquasec/trivy:latest image --exit-code 0 --severity LOW,MEDIUM,HIGH,CRITICAL \
+                    ${IMAGE_NAME_CLIENT}
+                    """
+                }
+            }
+        }
+        stage('Push Images to Docker Hub') {
+            steps {
+                script {
+                    docker.withRegistry('', "${DOCKERHUB_CREDENTIALS}") {
+                        dockerImageServer.push()
+                        dockerImageClient.push()
+                    }
                 }
             }
         }
