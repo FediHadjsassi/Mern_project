@@ -157,7 +157,7 @@ To simplify multi-container management, use Docker Compose for the entire applic
 docker-compose up --build
 ```
   *  Poussez les images Docker sur Docker Hub
-    ![Page](Screen/dockerlance.PNG)
+![ dockerlance]((https://github.com/FediHadjsassi/Mern_project/issues/1#issue-2788245852)) 
 ---
 
 ## 🤖 Jenkins Setup
@@ -168,7 +168,7 @@ Suivez les instructions d'installation de Jenkins pour votre environnement (http
 2. **Jenkins Pipeline for CI/CD**:
 
 3. **Jenkins Job**: Créez un job de pipeline Jenkins et pointez-le vers le repository contenant votre Jenkinsfile. Configurez le job pour exécuter le script de pipeline ci-dessus.
-![Page](Screen/jenkins.PNG)
+![dock](https://github.com/user-attachments/assets/b1fcf5c0-66e2-47a1-980e-a643e59417c8)
 ---
 
 ## 🛥️ Deployment Kubernetes 
