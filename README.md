@@ -157,7 +157,7 @@ To simplify multi-container management, use Docker Compose for the entire applic
 docker-compose up --build
 ```
   *  Poussez les images Docker sur Docker Hub
-![ dockerlance]((https://github.com/FediHadjsassi/Mern_project/issues/1#issue-2788245852)) 
+![dockerlance](https://github.com/user-attachments/assets/27591650-9563-4dc9-b936-a7daf6e2ece6)
 ---
 
 ## 🤖 Jenkins Setup
@@ -168,7 +168,7 @@ Suivez les instructions d'installation de Jenkins pour votre environnement (http
 2. **Jenkins Pipeline for CI/CD**:
 
 3. **Jenkins Job**: Créez un job de pipeline Jenkins et pointez-le vers le repository contenant votre Jenkinsfile. Configurez le job pour exécuter le script de pipeline ci-dessus.
-![dock](https://github.com/user-attachments/assets/b1fcf5c0-66e2-47a1-980e-a643e59417c8)
+![jenkins](https://github.com/user-attachments/assets/4ed7a0c3-9c3c-46e2-aa9c-2d9cb9a48eff)
 ---
 
 ## 🛥️ Deployment Kubernetes 
@@ -188,7 +188,7 @@ kubectl apply -f .mongodb-deployment.yaml
 ```bash
 kubectl get pods
 ```
-![Page](Screen/dock.PNG)
+![dock](https://github.com/user-attachments/assets/b1fcf5c0-66e2-47a1-980e-a643e59417c8)
 ---
 
 ## 🔹 Helm and ArgoCD Integration
